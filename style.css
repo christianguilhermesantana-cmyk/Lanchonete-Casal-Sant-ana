@@ -1,0 +1,270 @@
+/* Reset e padrões globais */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --primary: rgb(255, 208, 0);
+  --primary-hover: rgb(184, 150, 2);
+  --white: #fff;
+  --dark: #000;
+}
+
+body {
+  color: var(--dark);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 10%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  box-shadow: 0 0.1rem 0.5rem #ccc;
+}
+
+.logo {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-menu li a {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--dark);
+  transition: 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: var(--primary);
+}
+
+/* Botão */
+.btn-wt {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-wt:hover {
+  background: var(--primary-hover);
+}
+
+/* ================= MENU HAMBÚRGUER ================= */
+.menu {
+  display: none;
+  cursor: pointer;
+}
+
+.menu .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 5px auto;
+  border-radius: 3px;
+  background: var(--dark);
+  transition: all 0.3s;
+}
+
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3) {
+  background: var(--primary);
+}
+
+/* Animação X */
+.menu.ativo .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu.ativo .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu.ativo .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================= HOME ================= */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 10% 0;
+  gap: 2rem;
+}
+
+.home-text {
+  max-width: 35rem;
+}
+
+.home-text .text-h4 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.home-text .text-h1 {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.home-text p {
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 15px 35px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: #ADFF2F;
+  color: #000;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* ================= IMAGEM ================= */
+.home-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.home-img img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  animation: flutuar 4s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+
+.home-img img:hover {
+  transform: scale(1.05) rotate(2deg);
+  filter: drop-shadow(0 30px 40px rgba(255, 208, 0, 0.3));
+}
+
+/* Animação */
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= RESPONSIVO ================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    z-index: 1001;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+  }
+
+  .nav-menu.ativo {
+    right: 0;
+  }
+
+  .home {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 120px 8% 20px;
+  }
+
+  .home-text {
+    max-width: 100%;
+  }
+
+  .home-img img {
+    max-width: 300px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .navigation {
+    padding: 15px 5%;
+  }
+
+  .nav-menu {
+    width: 100%;
+  }
+
+  .home {
+    padding: 110px 5% 20px;
+    gap: 1.5rem;
+  }
+
+  .home-text .text-h1 {
+    line-height: 1.2;
+  }
+
+  .home-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .btn-wt {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+
+  .home-img img {
+    max-width: 220px;
+  }
+}
+
+/* Evita scroll quando menu aberto */
+body.menu-open {
+  overflow: hidden;
+}
