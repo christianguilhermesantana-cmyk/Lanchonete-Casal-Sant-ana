@@ -26,3 +26,19 @@ const btn = document.querySelector(".btn-wt");
 btn.addEventListener("click", (evento) => {
     window.open("https://wa.link/on8kbh");
 });
+
+
+//Parte da barra
+
+const progresso = document.querySelector(".progresso");
+
+function calcula_progresso(){
+    const rolou = window.scrollY;
+    const pode_rolar = document.documentElement.scrollHeight - window.innerHeight;
+
+    return porcentagem = (rolou / pode_rolar) * 100;
+}
+
+document.addEventListener("scroll", () => {
+    progresso.style.width = `${calcula_progresso()}%`; 
+})
