@@ -119,7 +119,7 @@ body {
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  padding: 100px 10% 0;
+  padding: 100px 10% 35px;
   gap: 2rem;
 }
 
@@ -181,6 +181,11 @@ body {
   transform: scale(1.05) rotate(2deg);
   filter: drop-shadow(0 30px 40px rgba(255, 208, 0, 0.3));
 }
+
+.barra-mapa {width: 100%; height: 3px;}
+.barra-mapa .barra {width: 100%; height: 100%; background-color: var(--primary);}
+
+.progresso {width: 0vw; height: 3px; background-color: var(--primary); transition: 0.4s ease; position: fixed; top: 0; z-index: 99999;}
 
 /* Animação */
 @keyframes flutuar {
