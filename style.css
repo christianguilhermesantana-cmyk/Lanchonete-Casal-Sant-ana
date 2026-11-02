@@ -174,12 +174,13 @@ body {
   max-width: 450px;
   height: auto;
   animation: flutuar 4s ease-in-out infinite;
-  transition: transform 0.5s ease;
+  transition: transform, scale 0.5s ease;
+  cursor: pointer;
 }
 
 .home-img img:hover {
-  transform: scale(1.05) rotate(2deg);
-  filter: drop-shadow(0 30px 40px rgba(255, 208, 0, 0.3));
+  animation-play-state: paused;
+  scale: 1.1;
 }
 
 .barra-mapa {width: 100%; height: 3px;}
@@ -192,6 +193,7 @@ body {
 
 #slider {
   padding: 90px 0 0;
+  scroll-margin-top: 120px;
 }
 
 #slider .tamanho-1000 {

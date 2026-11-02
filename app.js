@@ -48,3 +48,14 @@ document.addEventListener("scroll", () => {
 
 const obj_slide = new Splide( '.splide' );
 obj_slide.mount();
+
+const cardapio = document.querySelector("#slider");
+const img = document.querySelector(".coxinha");
+
+
+
+img.addEventListener("click", () => {
+    cardapio.scrollIntoView({
+        behavior: "smooth",
+    });
+});
